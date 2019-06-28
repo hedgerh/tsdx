@@ -30,6 +30,7 @@
     "templates"
   ],
   "dependencies": {
+    "@alloc/rollup-plugin-cpy": "^1.1.1",
     "@babel/core": "^7.4.4",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/polyfill": "^7.4.4",

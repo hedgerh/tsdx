@@ -4,6 +4,7 @@ import { paths } from './constants';
 import { terser } from 'rollup-plugin-terser';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
+import copy from './copy';
 import json from 'rollup-plugin-json';
 import replace from 'rollup-plugin-replace';
 import resolve from 'rollup-plugin-node-resolve';
@@ -163,6 +164,10 @@ export function createRollupConfig(
       babel(babelOptions(format, opts.target)),
       replace({
         'process.env.NODE_ENV': JSON.stringify(env),
+      }),
+      copy({
+        src: './src/**/*.d.ts',
+        dest: './dist',
       }),
       sourceMaps(),
       // sizeSnapshot({
